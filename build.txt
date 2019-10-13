@@ -4,4 +4,4 @@ version = 0.1
 modReferences = prismmod
 hideResources = true
 includeSource = false
-buildIgnore = build.txt, .gitignore, .git/, .vs/
+buildIgnore = build.txt, .gitignore, .git/, .vs/, README.md
