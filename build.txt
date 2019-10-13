@@ -1,0 +1,3 @@
+displayName = Prism Mod - Music
+author = GourmetSandwichBuns
+version = 0.1
