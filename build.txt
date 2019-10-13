@@ -1,3 +1,7 @@
 displayName = Prism Mod - Music
 author = GourmetSandwichBuns
 version = 0.1
+modReferences = prismmod
+hideResources = true
+includeSource = false
+buildIgnore = build.txt, .gitignore, .git/, .vs/
