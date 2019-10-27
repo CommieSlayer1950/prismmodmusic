@@ -1,6 +1,6 @@
 displayName = Prism Mod - Music
-author = GourmetSandwichBuns
-version = 0.1
+author = LordCrumple
+version = 0.0.5
 modReferences = prismmod
 hideResources = true
 includeSource = false
