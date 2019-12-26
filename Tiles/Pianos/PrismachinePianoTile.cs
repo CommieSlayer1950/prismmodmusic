@@ -9,6 +9,7 @@ namespace prismmodmusic.Tiles.Pianos
 {
     public class PrismachinePianoTile : ModTile
     {
+        public static bool playing=false;
         public override void SetDefaults()
         {
             Main.tileSolidTop[Type] = true;
@@ -34,9 +35,12 @@ namespace prismmodmusic.Tiles.Pianos
 
         public override bool NewRightClick(int i, int j)
         {
-            Main.PlaySound(mod.GetSoundSlot(SoundType.Music, "Sounds/Music/PrismachineTheme"));
+            for (int count = 0; count < Main.ActivePlayersCount; count++)
+            {
+                Player player = Main.player[count];
+                player.GetModPlayer<PrismMusicPlayer>().prismachinePianoSong = !player.GetModPlayer<PrismMusicPlayer>().prismachinePianoSong;
+            }
             return true;
         }
-
     }
 }
