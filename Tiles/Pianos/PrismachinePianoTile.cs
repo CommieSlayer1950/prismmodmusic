@@ -5,7 +5,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace prismmodmusic.Tiles
+namespace prismmodmusic.Tiles.Pianos
 {
     public class PrismachinePianoTile : ModTile
     {
@@ -37,16 +37,9 @@ namespace prismmodmusic.Tiles
             Item.NewItem(i * 16, j * 16, 32, 16, mod.ItemType("PrismachinePiano"));
         }
 
-        public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
+        public override void RightClick(int i, int j)
         {
-            // 239,16,224
-            Tile tile = Main.tile[i, j];
-            if (tile.frameX == 0)
-            {
-                r = 0.93f;
-                g = 0.06f;
-                b = 0.87f;
-            }
+            
         }
     }
 }
