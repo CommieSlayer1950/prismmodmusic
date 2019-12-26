@@ -5,7 +5,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace prismmod.Tiles
+namespace prismmodmusic.Tiles
 {
     public class PrismachinePianoTile : ModTile
     {
