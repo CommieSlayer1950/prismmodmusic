@@ -22,7 +22,7 @@ namespace prismmodmusic.Items.Pianos
             item.useStyle = 1;
             item.useAnimation = 15;
             item.useTime = 10;
-            item.createTile = mod.TileType("PrismachinePianoTile");
+            item.createTile = ModContent.TileType<Tiles.PrismachinePianoTile>();
         }
 
         public override void AddRecipes()
