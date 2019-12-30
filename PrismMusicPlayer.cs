@@ -15,7 +15,7 @@ namespace prismmodmusic
 
         public override void ResetEffects()
         {
-            
+
         }
 
 

@@ -13,11 +13,15 @@ namespace prismmodmusic
                 return;
             }
 
-            if (Main.LocalPlayer.GetModPlayer<PrismMusicPlayer>().prismachinePianoSong)
+            /*if (Main.LocalPlayer.GetModPlayer<PrismMusicPlayer>().prismachinePianoSong)
             {
                 priority = MusicPriority.BossHigh;
                 music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/PrismachinePiano");
             }
+            else
+            {
+                return;
+            }*/
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿/*using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
@@ -28,19 +28,44 @@ namespace prismmodmusic.Tiles.Pianos
             AddMapEntry(new Color(200, 200, 200), name);
         }
 
+        public override void PlaceInWorld(int i, int j, Item item)
+        {
+            Main.tile[i, j].frameY = 0;
+        }
+
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
         {
             Item.NewItem(i * 16, j * 16, 32, 16, mod.ItemType("PrismachinePiano"));
+            if (Main.tile[i, j].frameY == 1)
+            { 
+                
+            }
+        }
+
+        public override void NearbyEffects(int i, int j, bool closer)
+        {
+            if (Main.tile[i, j].frameY == 1)
+            {
+                Main.LocalPlayer.GetModPlayer<PrismMusicPlayer>().prismachinePianoSong = true;
+            }
+            else 
+            {
+                Main.LocalPlayer.GetModPlayer<PrismMusicPlayer>().prismachinePianoSong = false;
+            }
         }
 
         public override bool NewRightClick(int i, int j)
         {
-            for (int count = 0; count < Main.ActivePlayersCount; count++)
+            if (Main.tile[i, j].frameY == 1)
             {
-                Player player = Main.player[count];
-                player.GetModPlayer<PrismMusicPlayer>().prismachinePianoSong = !player.GetModPlayer<PrismMusicPlayer>().prismachinePianoSong;
+                Main.tile[i, j].frameY = 0;
             }
+            else
+            {
+                Main.tile[i, j].frameY = 1;
+            }
+            
             return true;
         }
     }
-}
+}*/

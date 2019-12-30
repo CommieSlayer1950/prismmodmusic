@@ -11,7 +11,7 @@ namespace prismmodmusic.Items.Pianos
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Prismachine Piano");
-            Tooltip.SetDefault("Plays a piano version of the Prismachine Theme");
+            Tooltip.SetDefault("IT'S BROKEN, DON'T USE IT. It will play a piano version of the Prismachine Theme.");
         }
 
         public override void SetDefaults()
@@ -22,7 +22,7 @@ namespace prismmodmusic.Items.Pianos
             item.useStyle = 1;
             item.useAnimation = 15;
             item.useTime = 10;
-            item.createTile = ModContent.TileType<Tiles.Pianos.PrismachinePianoTile>();
+            //item.createTile = ModContent.TileType<Tiles.Pianos.PrismachinePianoTile>();
         }
 
         public override void AddRecipes()
