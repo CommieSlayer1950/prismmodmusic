@@ -5,10 +5,11 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace prismmodmusic.Tiles
+namespace prismmodmusic.Tiles.Pianos
 {
     public class PrismachinePianoTile : ModTile
     {
+        public static bool playing=false;
         public override void SetDefaults()
         {
             Main.tileSolidTop[Type] = true;
@@ -16,20 +17,15 @@ namespace prismmodmusic.Tiles
             Main.tileNoAttach[Type] = true;
             Main.tileTable[Type] = false;
             Main.tileLavaDeath[Type] = true;
-            TileObjectData.newTile.CopyFrom(TileObjectData.Style6x3);
+            TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2);
             TileObjectData.newTile.Height = 2;
             TileObjectData.newTile.Width = 3;
             TileObjectData.newTile.CoordinateHeights = new[] { 16, 16 };
-            TileObjectData.newTile.Origin = new Point16(3, 1);
             TileObjectData.addTile(Type);
             AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTable);
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("PrismachinePiano");
             AddMapEntry(new Color(200, 200, 200), name);
-            disableSmartCursor = true;
-            adjTiles = new int[] { TileID.WorkBenches };
-            Main.tileFrameImportant[Type] = true;
-            Main.tileLighted[Type] = true;
         }
 
         public override void KillMultiTile(int i, int j, int frameX, int frameY)
@@ -37,16 +33,14 @@ namespace prismmodmusic.Tiles
             Item.NewItem(i * 16, j * 16, 32, 16, mod.ItemType("PrismachinePiano"));
         }
 
-        public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
+        public override bool NewRightClick(int i, int j)
         {
-            // 239,16,224
-            Tile tile = Main.tile[i, j];
-            if (tile.frameX == 0)
+            for (int count = 0; count < Main.ActivePlayersCount; count++)
             {
-                r = 0.93f;
-                g = 0.06f;
-                b = 0.87f;
+                Player player = Main.player[count];
+                player.GetModPlayer<PrismMusicPlayer>().prismachinePianoSong = !player.GetModPlayer<PrismMusicPlayer>().prismachinePianoSong;
             }
+            return true;
         }
     }
 }
