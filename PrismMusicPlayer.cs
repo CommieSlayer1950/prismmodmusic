@@ -11,7 +11,7 @@ namespace prismmodmusic
 {
     class PrismMusicPlayer : ModPlayer
     {
-        public bool prismachinePianoSong = false;
+        //public bool prismachinePianoSong = false;
 
         public override void ResetEffects()
         {
