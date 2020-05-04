@@ -4,4 +4,5 @@
 *.ide-wal
 obj/
 .bin/
+bin/
 pat.txt
