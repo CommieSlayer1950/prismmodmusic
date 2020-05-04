@@ -23,5 +23,23 @@ namespace prismmodmusic
                 return;
             }*/
         }
+
+        public override void Close()
+        {
+            var slots = new int[] {
+                GetSoundSlot(SoundType.Music, "Sounds/Music/PrismachineTheme"),
+                GetSoundSlot(SoundType.Music, "Sounds/Music/Biome/WaterTown")
+            };
+
+            foreach (var slot in slots)
+            {
+                if (Main.music.IndexInRange(slot) && Main.music[slot]?.IsPlaying == true)
+                {
+                    Main.music[slot].Stop(Microsoft.Xna.Framework.Audio.AudioStopOptions.Immediate);
+                }
+            }
+
+            base.Close();
+        }
     }
 }
